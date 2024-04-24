@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hlefevre <hlefevre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hulefevr <hulefevr@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/21 09:29:31 by hlefevre          #+#    #+#             */
-/*   Updated: 2021/10/28 18:15:33 by hlefevre         ###   ########.fr       */
+/*   Created: 2024/04/22 10:35:48 by hulefevr          #+#    #+#             */
+/*   Updated: 2024/04/22 13:37:26 by hulefevr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,28 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int		i;
-	char	*str;
-	size_t	size;
+	char	*sub;
+	size_t	new_len;
 
-	size = len;
-	if (start >= ft_strlen(s))
-		return (ft_strdup(""));
-	if (ft_strlen(s) <= len)
-		size = ft_strlen(s);
-	str = malloc(sizeof(char) * size);
-	if (!str)
+	if (!s)
 		return (NULL);
-	i = 0;
-	while (len > 0 && s[start] && size != 0)
+	if (ft_strlen(s) < start)
 	{
-		str[i] = s[start];
-		i++;
-		start++;
-		len--;
+		sub = ft_calloc(1, sizeof(char));
+		if (!sub)
+			return (NULL);
 	}
-	str[i] = '\0';
-	return (str);
+	else
+	{
+		new_len = ft_strlen(s + start);
+		if (!(new_len < len))
+			new_len = len;
+		sub = (char *)malloc((new_len + 1) * sizeof(char));
+		if (!sub)
+			return (NULL);
+		sub[new_len] = 0;
+		while (new_len-- > 0)
+			sub[new_len] = s[start + new_len];
+	}
+	return (sub);
 }

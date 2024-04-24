@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hlefevre <hlefevre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hulefevr <hulefevr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/18 17:48:22 by hlefevre          #+#    #+#             */
-/*   Updated: 2021/10/26 13:55:27 by hlefevre         ###   ########.fr       */
+/*   Created: 2024/04/22 09:52:13 by hulefevr          #+#    #+#             */
+/*   Updated: 2024/04/22 09:54:42 by hulefevr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	s2 = (char *)src;
 	i = 0;
 	if (!s1 && !s2)
-	{
 		return (NULL);
-	}
 	while (n > 0)
 	{
 		s1[i] = s2[i];

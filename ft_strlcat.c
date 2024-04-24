@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hlefevre <hlefevre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hulefevr <hulefevr@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/21 10:42:41 by hlefevre          #+#    #+#             */
-/*   Updated: 2021/10/26 13:51:52 by hlefevre         ###   ########.fr       */
+/*   Created: 2024/04/22 10:11:51 by hulefevr          #+#    #+#             */
+/*   Updated: 2024/04/22 11:51:59 by hulefevr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	dst[len] = '\0';
 	return (ft_strlen(dst) + ft_strlen(&src[j]));
 }
-
-// 

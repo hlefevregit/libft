@@ -3,42 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hlefevre <hlefevre@student.42.fr>          +#+  +:+       +#+        */
+/*   By: hulefevr <hulefevr@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/18 18:18:11 by hlefevre          #+#    #+#             */
-/*   Updated: 2021/10/26 14:32:54 by hlefevre         ###   ########.fr       */
+/*   Created: 2024/04/22 09:55:05 by hulefevr          #+#    #+#             */
+/*   Updated: 2024/04/22 15:05:39 by hulefevr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	int		i;
 	char	*s1;
 	char	*s2;
 
-	s1 = (char *)dest;
-	s2 = (char *)src;
-	i = 0;
-	if (!s1 && !s2)
+	if (!src && !dst)
 		return (NULL);
-	if (s1 > s2)
-	{
-		while (n > 0)
-		{
-			s1[n - 1] = s2[n - 1];
-			n--;
-		}
-	}
+	if (src > dst)
+		dst = ft_memcpy(dst, src, len);
 	else
 	{
-		while (n > 0)
-		{
-			s1[i] = s2[i];
-			i++;
-			n--;
-		}
+		s1 = (char *)dst;
+		s2 = (char *)src;
+		while (len--)
+			s1[len] = s2[len];
 	}
-	return (dest);
+	return (dst);
 }
